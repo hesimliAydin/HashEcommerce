@@ -2,6 +2,7 @@ using Ecommerce.Business.Abstract;
 using Ecommerce.Business.Concred;
 using Ecommerce.DataAccess.Abstract;
 using Ecommerce.DataAccess.Concred.EntityFramework;
+using HashEcommerce.WebUI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,8 @@ builder.Services.AddScoped<IProductDal,EFProductDal>();
 builder.Services.AddScoped<ICategoryDal,EFCategoryDal>();
 builder.Services.AddScoped<IProductService,ProductService>();
 builder.Services.AddScoped<ICategoryService,CategoryService>();
+builder.Services.AddScoped<ICartService,CartService>();
+builder.Services.AddScoped<ICartSessionService,CartSessionService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
